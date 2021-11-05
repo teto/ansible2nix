@@ -1,0 +1,9 @@
+collections:
+- name: community.kubernetes
+  version: 1.1.1
+- name: amazon.aws
+  version: 1.4.1
+roles:
+- src: ssh://git@git.novadiscovery.net:4224/world/ansible-roles/eksctl-nodegroup.git
+  scm: git
+  version: v1.1.0

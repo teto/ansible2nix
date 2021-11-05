@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ansible2nix"
+version = "0.1.0"
+description = "convert requirements.yml into a nix expression"
+authors = ["Matthieu Coudron <mcoudron@hotmail.com>"]
+license = "GPL"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+PyYAML = "^6.0"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+ansible2nix = 'ansible2nix.ansible2nix:main'
+
+
+[build-system]
+requires = [
+	"poetry-core>=1.0.0",
+	"setuptools>50"  # use my own
+]
+build-backend = "poetry.core.masonry.api"
