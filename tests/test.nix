@@ -1,7 +1,8 @@
-{ stdenv, ansibleGenerateCollection, python3 }:
+{ stdenv, ansibleGenerateCollection, python3, ansible }:
 
 let
-  ansibleCollections = import ./requirements.nix;
+  ansibleCollections = ansibleGenerateCollection ansible (import ./requirements.nix);
+
   myPythonEnv = python3.withPackages(p: with p;[
       boto3
       # psycopg2
@@ -11,10 +12,17 @@ let
 in
 stdenv.mkDerivation {
 
-  name = "gitops-platform";
+  name = "test";
   ANSIBLE_COLLECTIONS_PATH = ansibleCollections;
 
-  buildInputs = [
+  src = ./.;
+
+  buildPhase = ":";
+  installPhase = ''
+    touch $out
+  '';
+
+  propagatedBuildInputs = [
     myPythonEnv
   ];
 

@@ -38,12 +38,7 @@
         buildInputs = [ ];
       };
 
-      # ansibleLib = {
-        ansibleGenerateCollection = final.callPackage ./ansible.nix {};
-
-        # getGalaxyUrl = "https://galaxy.ansible.com/download/${name}-${version}.tar.gz";
-      # };
-
+      ansibleGenerateCollection = final.callPackage ./ansible.nix {};
     };
   };
 }
